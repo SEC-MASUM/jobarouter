@@ -18,6 +18,9 @@ function Careers(props) {
 // loader function
 export const careerLoader = async () => {
   const res = await fetch(`http://localhost:5000/careers`);
+  if (!res.ok) {
+    throw Error("Could not fetch the career");
+  }
   return res.json();
 };
 
